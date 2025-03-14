@@ -11,6 +11,25 @@
     background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 24px 24px;
   }
+  
+  .bg-ai-woman {
+    position: relative;
+  }
+  
+  .bg-ai-woman::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/images/ai-woman-background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    filter: blur(8px);
+    z-index: -1;
+  }
 }
 
 @layer base {

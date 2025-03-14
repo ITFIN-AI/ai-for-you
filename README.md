@@ -133,6 +133,10 @@ If you encounter email sending issues:
 3. If using Gmail, you may need to enable "Less secure app access" or use an App Password
 4. Check the server logs for detailed error messages
 
+## Background Image
+
+The project uses a background image of a woman working with AI interfaces. This image should be placed in the `public/images` directory as `ai-woman-background.jpg`. The image is displayed with a blur effect to create a subtle background that doesn't distract from the main content.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 

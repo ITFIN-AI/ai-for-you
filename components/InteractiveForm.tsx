@@ -206,7 +206,7 @@ export default function InteractiveForm() {
             <X size={28} />
           </button>
           
-          <h2 className={`${playfair.className} text-3xl font-bold text-center mb-8`}>
+          <h2 className={`${playfair.className} text-3xl font-bold text-center mb-8 text-gray-900`}>
             Let's Automate Your Workflow
           </h2>
           
@@ -224,11 +224,11 @@ export default function InteractiveForm() {
                     value="Personal" 
                     checked={formData.workflowType === 'Personal'}
                     onChange={handleWorkflowChange}
-                    className="mt-1 mr-4 h-5 w-5"
+                    className="mt-1 mr-4 h-5 w-5 flex-shrink-0"
                   />
                   <div>
-                    <div className="font-medium text-lg">Personal Workflow</div>
-                    <div className="text-gray-500 mt-1">Tasks related to personal productivity, organization, or daily life</div>
+                    <div className="font-medium text-lg text-gray-800">Personal Workflow</div>
+                    <div className="text-gray-600 mt-1">Tasks related to personal productivity, organization, or daily life</div>
                   </div>
                 </label>
                 
@@ -239,11 +239,11 @@ export default function InteractiveForm() {
                     value="Professional" 
                     checked={formData.workflowType === 'Professional'}
                     onChange={handleWorkflowChange}
-                    className="mt-1 mr-4 h-5 w-5"
+                    className="mt-1 mr-4 h-5 w-5 flex-shrink-0"
                   />
                   <div>
-                    <div className="font-medium text-lg">Professional Workflow</div>
-                    <div className="text-gray-500 mt-1">Tasks related to your job, business operations, or professional services</div>
+                    <div className="font-medium text-lg text-gray-800">Professional Workflow</div>
+                    <div className="text-gray-600 mt-1">Tasks related to your job, business operations, or professional services</div>
                   </div>
                 </label>
                 
@@ -254,11 +254,11 @@ export default function InteractiveForm() {
                     value="Creative" 
                     checked={formData.workflowType === 'Creative'}
                     onChange={handleWorkflowChange}
-                    className="mt-1 mr-4 h-5 w-5"
+                    className="mt-1 mr-4 h-5 w-5 flex-shrink-0"
                   />
                   <div>
-                    <div className="font-medium text-lg">Creative Workflow</div>
-                    <div className="text-gray-500 mt-1">Tasks related to content creation, design, or artistic processes</div>
+                    <div className="font-medium text-lg text-gray-800">Creative Workflow</div>
+                    <div className="text-gray-600 mt-1">Tasks related to content creation, design, or artistic processes</div>
                   </div>
                 </label>
               </div>
@@ -279,9 +279,9 @@ export default function InteractiveForm() {
                       type="checkbox" 
                       checked={formData.automationNeeds.includes(option.id)}
                       onChange={() => handleCheckboxChange(option.id)}
-                      className="mr-4 h-5 w-5"
+                      className="mr-4 h-5 w-5 flex-shrink-0"
                     />
-                    <span className="text-lg">{option.label}</span>
+                    <span className="text-lg text-gray-800">{option.label}</span>
                   </label>
                 ))}
               </div>
@@ -303,7 +303,7 @@ export default function InteractiveForm() {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-5 py-4 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+                    className="w-full px-5 py-4 text-lg text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
                     required
                   />
                 </div>
@@ -318,7 +318,7 @@ export default function InteractiveForm() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-5 py-4 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+                    className="w-full px-5 py-4 text-lg text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
                     required
                   />
                 </div>
@@ -333,7 +333,7 @@ export default function InteractiveForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-5 py-4 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+                    className="w-full px-5 py-4 text-lg text-gray-800 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
                   />
                 </div>
               </div>
