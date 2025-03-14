@@ -14,31 +14,31 @@ help:
 
 # Development environment
 dev: build-dev
-	docker-compose up app-dev
+	docker compose up app-dev
 
 # Production environment
 prod: build-prod
-	docker-compose up -d app-prod
+	docker compose up -d app-prod
 
 # Build development image
 build-dev:
-	docker-compose build app-dev
+	docker compose build app-dev
 
 # Build production image
 build-prod:
-	docker-compose build app-prod
+	docker compose build app-prod
 
 # View development logs
 logs:
-	docker-compose logs -f app-dev
+	docker compose logs -f app-dev
 
 # View production logs
 logs-prod:
-	docker-compose logs -f app-prod
+	docker compose logs -f app-prod
 
 # Clean up Docker resources
 clean:
-	docker-compose down -v
+	docker compose down -v
 	docker system prune -f
 
 # Create .env.local if it doesn't exist
