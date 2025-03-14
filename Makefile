@@ -1,4 +1,4 @@
-.PHONY: dev prod build-dev build-prod logs logs-prod clean help
+.PHONY: dev prod build-dev build-prod logs logs-prod clean help download-image
 
 # Default target
 help:
@@ -10,14 +10,19 @@ help:
 	@echo "  make logs        - View development logs"
 	@echo "  make logs-prod   - View production logs"
 	@echo "  make clean       - Remove Docker containers and volumes"
+	@echo "  make download-image - Download the AI woman background image"
 	@echo "  make help        - Show this help message"
 
+# Download AI woman background image
+download-image:
+	npm run download-image
+
 # Development environment
-dev: build-dev
+dev: download-image build-dev
 	docker compose up app-dev
 
 # Production environment
-prod: build-prod
+prod: download-image build-prod
 	docker compose up -d app-prod
 
 # Build development image

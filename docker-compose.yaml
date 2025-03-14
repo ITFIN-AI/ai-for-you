@@ -12,6 +12,7 @@ services:
       - .:/app
       - /app/node_modules
       - /app/.next
+      - ./public:/app/public
     environment:
       - NODE_ENV=development
       - NEXT_PUBLIC_BASE_URL=http://localhost:3001

@@ -227,6 +227,30 @@ npm run logs -- --help
 
 The project uses a background image of a woman working with AI interfaces. This image should be placed in the `public/images` directory as `ai-woman-background.jpg`. The image is displayed with a blur effect to create a subtle background that doesn't distract from the main content.
 
+### Downloading the Background Image
+
+To ensure the background image is properly displayed, you can download it using the provided script:
+
+```bash
+# Download the AI woman background image
+npm run download-image
+# or
+make download-image
+```
+
+When using Docker, the image will be automatically downloaded when you run:
+
+```bash
+make dev
+# or
+make prod
+```
+
+If you're experiencing issues with the background image not showing up, make sure:
+1. The image file exists at `public/images/ai-woman-background.jpg`
+2. The image file is an actual image file, not a placeholder
+3. The Docker container has access to the image file
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
