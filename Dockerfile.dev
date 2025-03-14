@@ -1,0 +1,27 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json* yarn.lock* ./
+
+RUN \
+  if [ -f yarn.lock ]; then yarn; \
+  elif [ -f package-lock.json ]; then npm install; \
+  else npm install; \
+  fi
+
+# Copy the rest of the application
+COPY . .
+
+# Create logs directory with proper permissions
+RUN mkdir -p logs && chmod 777 logs
+
+# Disable Next.js telemetry
+ENV NEXT_TELEMETRY_DISABLED 1
+
+# Expose the port the app runs on
+EXPOSE 3001
+
+# Command to run the development server
+CMD ["npm", "run", "dev:3001"] 

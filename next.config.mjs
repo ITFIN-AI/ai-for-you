@@ -4,6 +4,8 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:3001',
   // This ensures that assets are loaded from the correct URL in development
   basePath: '',
+  // Enable standalone output for Docker
+  output: 'standalone',
 };
 
 export default nextConfig;

@@ -83,6 +83,57 @@ yarn build
 npm run build
 ```
 
+## Docker Support
+
+This project includes Docker support for both development and production environments.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Running with Docker
+
+The project includes a Makefile to simplify Docker commands:
+
+```bash
+# Show available commands
+make help
+
+# Start development environment
+make dev
+
+# Start production environment
+make prod
+
+# View logs
+make logs        # Development logs
+make logs-prod   # Production logs
+
+# Clean up Docker resources
+make clean
+```
+
+### Manual Docker Commands
+
+If you prefer not to use the Makefile, you can use Docker Compose directly:
+
+```bash
+# Development
+docker-compose build app-dev
+docker-compose up app-dev
+
+# Production
+docker-compose build app-prod
+docker-compose up -d app-prod
+```
+
+### Docker Volumes
+
+The production Docker setup uses a named volume for logs:
+
+- `app_logs`: Stores application logs from the container
+
 ## Technologies Used
 
 - Next.js
