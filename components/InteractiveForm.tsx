@@ -162,7 +162,8 @@ export default function InteractiveForm() {
       const data = await response.json();
       
       if (!response.ok) {
-        throw new Error(data.error || data.details || 'Failed to send request');
+        const errorDetails = data.details ? `: ${data.details}` : '';
+        throw new Error(`${data.error || 'Failed to send request'}${errorDetails}`);
       }
       
       // Restore scrolling
@@ -176,7 +177,13 @@ export default function InteractiveForm() {
       setCurrentStep(0);
     } catch (error: any) {
       console.error('Error sending form:', error);
-      setErrorMessage(error.message || 'There was an error submitting your request. Please try again.');
+      
+      // Provide a more user-friendly error message
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        setErrorMessage('Network error: Please check your internet connection and try again.');
+      } else {
+        setErrorMessage(error.message || 'There was an error submitting your request. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }

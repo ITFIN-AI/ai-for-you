@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { logger } from '@/lib/logger';
 
 // Create a transporter with your SMTP configuration
 const transporter = nodemailer.createTransport({
@@ -20,18 +21,31 @@ export async function POST(request: NextRequest) {
 
     // Validate required fields
     if (!name || !email || !message) {
+      logger.error('Email validation failed', null, { 
+        missingFields: {
+          name: !name,
+          email: !email,
+          message: !message
+        }
+      });
+      
       return NextResponse.json(
         { error: 'Name, email, and message are required' },
         { status: 400 }
       );
     }
 
-    // Log the email attempt for debugging
-    console.log('Attempting to send email with the following configuration:');
-    console.log(`SMTP Host: ${process.env.SMTP_HOST}`);
-    console.log(`SMTP Port: ${process.env.SMTP_PORT}`);
-    console.log(`SMTP User: ${process.env.SMTP_USER}`);
-    console.log(`From: ${process.env.SMTP_FROM}`);
+    // Log the email attempt
+    logger.info('Attempting to send email', {
+      recipient: process.env.SMTP_USER,
+      sender: email,
+      name,
+      smtpConfig: {
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        user: process.env.SMTP_USER?.substring(0, 3) + '***', // Partial logging for security
+      }
+    });
     
     // Create email content
     const mailOptions = {
@@ -72,10 +86,18 @@ ${message}
     // Send the email
     try {
       const info = await transporter.sendMail(mailOptions);
-      console.log('Email sent successfully:', info.messageId);
+      logger.info('Email sent successfully', { 
+        messageId: info.messageId,
+        recipient: process.env.SMTP_USER,
+        sender: email
+      });
       return NextResponse.json({ success: true });
     } catch (emailError: any) {
-      console.error('SMTP Error:', emailError);
+      logger.error('SMTP Error: Failed to send email', emailError, {
+        errorCode: emailError.code,
+        sender: email,
+        recipient: process.env.SMTP_USER
+      });
       
       // Check for authentication errors
       if (emailError.code === 'EAUTH') {
@@ -98,7 +120,7 @@ ${message}
       );
     }
   } catch (error: any) {
-    console.error('Server error:', error);
+    logger.error('Server error in email API route', error);
     return NextResponse.json(
       { error: 'Internal server error', details: error.message },
       { status: 500 }

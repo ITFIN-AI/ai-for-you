@@ -38,7 +38,8 @@ export default function ContactForm() {
       const data = await response.json();
       
       if (!response.ok) {
-        throw new Error(data.error || data.details || 'Failed to send message');
+        const errorDetails = data.details ? `: ${data.details}` : '';
+        throw new Error(`${data.error || 'Failed to send message'}${errorDetails}`);
       }
       
       setSubmitStatus('success');
@@ -50,7 +51,16 @@ export default function ContactForm() {
     } catch (error: any) {
       console.error('Error sending form:', error);
       setSubmitStatus('error');
-      setErrorMessage(error.message || 'There was an error sending your message. Please try again.');
+      
+      // Provide a more user-friendly error message
+      const errorMsg = error.message || 'There was an error sending your message. Please try again.';
+      
+      // If it's a network error, provide a specific message
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        setErrorMessage('Network error: Please check your internet connection and try again.');
+      } else {
+        setErrorMessage(errorMsg);
+      }
     } finally {
       setIsSubmitting(false);
     }

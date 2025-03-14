@@ -132,6 +132,45 @@ If you encounter email sending issues:
 2. Verify that your SMTP server allows authentication from your IP address
 3. If using Gmail, you may need to enable "Less secure app access" or use an App Password
 4. Check the server logs for detailed error messages
+5. Check the application logs for detailed error information (see Logging section below)
+
+## Logging System
+
+The application includes a logging system that records errors and important events to files. This is especially useful for tracking email sending failures and other issues.
+
+### Log Files
+
+Log files are stored in the `logs` directory with the naming format `log-YYYY-MM-DD.txt`. Each log entry includes:
+
+- Timestamp
+- Log level (ERROR or INFO)
+- Message
+- Error details (for errors)
+- Context information
+
+### Viewing Logs
+
+You can view logs using the provided script:
+
+```bash
+# View all logs
+npm run logs
+
+# View only error logs
+npm run logs:errors
+
+# View logs for a specific date
+npm run logs -- --date 2023-04-15
+
+# Search for specific terms in logs
+npm run logs -- --search "email"
+```
+
+For more options, run:
+
+```bash
+npm run logs -- --help
+```
 
 ## Background Image
 
