@@ -207,7 +207,7 @@ export default function InteractiveForm() {
           </button>
           
           <h2 className={`${playfair.className} text-3xl font-bold text-center mb-8 text-gray-900`}>
-            Let's Automate Your Workflow
+            Let&apos;s Automate Your Workflow
           </h2>
           
           <ProgressBar currentStep={currentStep} totalSteps={totalSteps} />

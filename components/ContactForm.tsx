@@ -68,7 +68,7 @@ export default function ContactForm() {
             <div className="text-center py-8">
               <div className="text-green-500 text-5xl mb-4">✓</div>
               <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
-              <p className="text-gray-600">Your message has been sent successfully. I'll get back to you soon!</p>
+              <p className="text-gray-600">Your message has been sent successfully. I&apos;ll get back to you soon!</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -125,15 +125,9 @@ export default function ContactForm() {
                 </button>
               </div>
               
-              {submitStatus === 'success' && (
-                <div className="mt-4 p-3 bg-green-100 text-green-700 rounded">
-                  Thank you for your message! We'll get back to you soon.
-                </div>
-              )}
-              
               {submitStatus === 'error' && (
                 <div className="mt-4 p-3 bg-red-100 text-red-700 rounded">
-                  {errorMessage}
+                  {errorMessage || "Sorry, there was an error sending your message. Please try again."}
                 </div>
               )}
             </form>
@@ -141,7 +135,7 @@ export default function ContactForm() {
         </div>
         
         <div className="mt-8 text-center text-gray-500 text-sm">
-          <p>Your ideas will be reviewed and I'll contact you to discuss the possibilities.</p>
+          <p>Your ideas will be reviewed and I&apos;ll contact you to discuss the possibilities.</p>
         </div>
       </div>
     </section>
