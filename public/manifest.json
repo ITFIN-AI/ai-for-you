@@ -3,12 +3,12 @@
   "short_name": "VibeDev",
   "icons": [
     {
-      "src": "/images/idevibelogo.png",
+      "src": "/images/ai-for-you-icon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/images/idevibelogo.png",
+      "src": "/images/ai-for-you-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }

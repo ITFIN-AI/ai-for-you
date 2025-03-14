@@ -21,28 +21,28 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/images/idevibelogo.png",
+        url: "/images/ai-for-you-icon.png",
         type: "image/png",
         sizes: "32x32"
       },
       {
-        url: "/images/idevibelogo.png",
+        url: "/images/ai-for-you-icon.png",
         type: "image/png",
         sizes: "16x16"
       }
     ],
     apple: [
       {
-        url: "/images/idevibelogo.png",
+        url: "/images/ai-for-you-icon.png",
         type: "image/png",
         sizes: "180x180"
       }
     ],
-    shortcut: [{ url: "/images/idevibelogo.png" }],
+    shortcut: [{ url: "/images/ai-for-you-icon.png" }],
     other: [
       {
         rel: "icon",
-        url: "/images/idevibelogo.png",
+        url: "/images/ai-for-you-icon.png",
       },
     ],
   },
@@ -61,9 +61,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/idevibelogo.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/idevibelogo.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/idevibelogo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/ai-for-you-icon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/ai-for-you-icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/ai-for-you-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.className} bg-black bg-dotted-grid bg-ai-woman`}>{children}</body>
